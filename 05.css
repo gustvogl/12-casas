@@ -1,0 +1,182 @@
+/* --- Reseta estilos básicos para consistência --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* --- Estilos Globais da Página --- */
+body {
+    /* Fundo escuro com um leve gradiente cósmico */
+    background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+    color: #e0e0e0; /* Cor de texto clara para contraste */
+    font-family: 'Open Sans', sans-serif; /* Fonte padrão legível */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- Container Principal --- */
+.main-container {
+    background: rgba(10, 15, 30, 0.9); /* Mármore escuro com transparência */
+    max-width: 800px;
+    width: 100%;
+    padding: 40px;
+    border-radius: 12px;
+    /* Borda dourada brilhante "Armadura de Ouro" */
+    border: 3px solid #d4af37;
+    /* Efeito de brilho externo e interno */
+    box-shadow: 0 0 40px rgba(212, 175, 55, 0.3), inset 0 0 20px rgba(212, 175, 55, 0.15);
+    backdrop-filter: blur(5px); /* Efeito de vidro borrado no fundo */
+    text-align: center;
+    position: relative;
+}
+
+/* Detalhe visual dourado no topo */
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 15%;
+    width: 70%;
+    height: 6px;
+    background: linear-gradient(90deg, transparent, #fcf6ba, #d4af37, #fcf6ba, transparent);
+    box-shadow: 0 0 15px #d4af37;
+    border-radius: 3px;
+}
+
+/* --- Cabeçalho (Título e Descrição) --- */
+header h1 {
+    font-family: 'Cinzel', serif; /* Fonte clássica/épica grega */
+    /* Efeito de texto em Ouro Dourado */
+    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fcf6ba, #aa771c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-transform: uppercase;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 3px 6px rgba(212, 175, 55, 0.4));
+}
+
+.description-box {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #2a3548;
+    margin-bottom: 30px;
+}
+
+.description-box p {
+    font-style: italic;
+    color: #a0aec0;
+    line-height: 1.6;
+}
+
+/* --- Área do Jogo (Log e Botão) --- */
+.log-container {
+    height: 350px; /* Altura fixa para a caixa de texto */
+    overflow-y: auto; /* Adiciona barra de rolagem se o texto for maior */
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    margin-bottom: 30px;
+    border: 2px solid #2a3548;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
+}
+
+/* Customização da barra de rolagem (Scrollbar) para parecer ouro derretido */
+.log-container::-webkit-scrollbar {
+    width: 10px;
+}
+.log-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+}
+.log-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #bf953f, #aa771c);
+    border-radius: 5px;
+    border: 1px solid #111;
+}
+
+.log-container p {
+    margin-bottom: 12px;
+}
+
+/* --- O Botão "Elevar Cosmo" --- */
+.action-area {
+    margin-top: 20px;
+}
+
+button#start-btn {
+    font-family: 'Cinzel', serif;
+    background: linear-gradient(135deg, #b38728, #fcf6ba, #bf953f);
+    color: #111;
+    border: none;
+    padding: 18px 45px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    text-transform: uppercase;
+    /* Brilho Dourado Dourado Dourado */
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.5);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Efeito de brilho que passa pelo botão no hover */
+button#start-btn::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: rotate(30deg);
+    transition: all 0.5s ease;
+    opacity: 0;
+}
+
+button#start-btn:hover {
+    transform: translateY(-3px) scale(1.03); /* Sobe e cresce levemente */
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.9);
+    background: linear-gradient(135deg, #fcf6ba, #bf953f, #fcf6ba);
+}
+
+button#start-btn:hover::after {
+    left: 130%;
+    opacity: 1;
+}
+
+button#start-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 15px rgba(212, 175, 55, 0.6);
+}
+
+/* --- Classes de Estilo para Mensagens (usadas no JS) --- */
+.msg-info { color: #a0aec0; } /* Cinza info */
+.msg-cosmo-elevated { color: #00e6e6; text-shadow: 0 0 10px rgba(0, 230, 230, 0.6); font-weight: bold; } /* Azul brilhante Cosmo */
+.msg-damage { color: #ff4d4d; font-weight: bold; } /* Vermelho dano */
+.msg-house { color: #fcf6ba; } /* Dourado claro Casa */
+.msg-victory { color: #d4af37; font-family: 'Cinzel', serif; font-size: 1.4rem; text-align: center; margin-top: 20px; text-shadow: 0 0 15px #d4af37; } /* Ouro Vitória */
+.msg-defeat { color: #718096; font-style: italic; text-align: center; margin-top: 20px; } /* Cinza escuro Derrota */
+
+/* --- Rodapé --- */
+footer {
+    margin-top: 40px;
+    border-top: 1px solid #2a3548;
+    padding-top: 20px;
+}
+
+footer p {
+    font-size: 0.85rem;
+    color: #616e7f;
+    letter-spacing: 2px;
+}
